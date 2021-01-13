@@ -35,7 +35,7 @@ glob.sync('./api/*.[tj]s?(x)').forEach(filename =>
   config.entry[path.parse(filename).name] = filename
 )
 
-const createRedirect = (name) => `http://localhost:8080/${name}`
+const createRedirect = (name) => `http://localhost:3000/${name}`
 
 const redirectsPlugin = {
   apply: (compiler) => {
@@ -44,7 +44,7 @@ const redirectsPlugin = {
       compilation.entrypoints.forEach((_, key) =>
         redirects[key] = createRedirect(key)
       )
-      fs.writeFileSync('redirects.json', JSON.stringify(redirects))
+      fs.writeFileSync('redirects.json', JSON.stringify(redirects) + '\n')
     })
   }
 }
