@@ -118,5 +118,6 @@ module.exports = {
         transformHeaders,
       },
     },
+    `gatsby-plugin-client-side-redirect`
   ],
 }
