@@ -1918,7 +1918,7 @@
   dependencies:
     "@types/node" "^10.0.3"
 
-"@reach/router@^1.3.4":
+"@reach/router@^1.2.1", "@reach/router@^1.3.4":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
   integrity sha512-+mtn9wjlB9NN2CNnnC/BRYtwdKBfSyyasPYraNAyvaV1occr/5NnB4CVzjEZipNHwYebQwcndGUmpFzxAUoqSA==
@@ -6916,6 +6916,13 @@ gatsby-plugin-client-side-redirect@^1.1.0:
   integrity sha512-ox3QpfQynNmH4SgBedMxi9WdEFVI/fQep0cpAu5mPSIQElIJmy+TF5fDZc56Ra+cvr/dz45sw+tUzE41aMlLfw==
   dependencies:
     fs-extra "^7.0.0"
+
+gatsby-plugin-express@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-express/-/gatsby-plugin-express-1.1.6.tgz#1e381ef5a268f1d451e474a9f11a5306856df867"
+  integrity sha512-DO/XK2ga+Afzayw1ocIW/yr2NYk7XoOJgr+sJ2PmEpQbCNSlPUtHj/g/qpJ7cqm2Yrh5Jr62U9LezcrMwCbS1w==
+  dependencies:
+    "@reach/router" "^1.2.1"
 
 gatsby-plugin-manifest@^2.4.21:
   version "2.5.2"

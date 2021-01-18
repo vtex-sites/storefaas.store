@@ -9,7 +9,7 @@ import express from 'express';
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
 
-const port = process.env["LAMBDA_PORT"] || 3000;
+const port = process.env["LAMBDA_PORT"] || 8080;
 
 const app: Application = express();
 
