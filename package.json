@@ -3,20 +3,31 @@
   "private": true,
   "version": "0.0.0",
   "dependencies": {
+    "@apollo/client": "^3.3.6",
+    "@types/aws-lambda": "^8.10.70",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
     "@vtex/gatsby-plugin-cms": "^0.223.1",
     "@vtex/gatsby-plugin-graphql": "^0.221.0",
     "@vtex/gatsby-plugin-nginx": "^0.221.0",
     "@vtex/gatsby-source-vtex": "^0.223.1",
     "@vtex/gatsby-theme-store": "^0.222.0",
     "@vtex/store-ui": "^0.221.0",
+    "aws-lambda": "^1.0.6",
     "babel-preset-gatsby": "^0.5.5",
     "dotenv": "^8.2.0",
     "gatsby": "^2.24.64",
+    "gatsby-plugin-client-side-redirect": "^1.1.0",
+    "gatsby-plugin-express": "^1.1.6",
     "gatsby-plugin-manifest": "^2.4.21",
     "gatsby-plugin-netlify": "^2.3.17",
     "gatsby-plugin-robots-txt": "^1.5.1",
+    "helmet": "^4.3.1",
+    "lambda-local": "^1.7.4",
     "react": "^0.0.0-experimental-7f28234f8",
-    "react-dom": "^0.0.0-experimental-7f28234f8"
+    "react-dom": "^0.0.0-experimental-7f28234f8",
+    "ts-loader": "^8.0.14",
+    "zip-webpack-plugin": "^4.0.1"
   },
   "devDependencies": {
     "@vtex/lighthouse-config": "^0.221.0",
@@ -24,8 +35,10 @@
     "@vtex/tsconfig": "^0.5.5",
     "eslint": "^7.14.0",
     "eslint-config-vtex-react": "^6.8.3",
+    "node-ts": "^5.1.1",
     "prettier": "^2.2.0",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "webpack-cli": "^4.3.1"
   },
   "resolutions": {
     "@typescript-eslint/parser": "^4",
