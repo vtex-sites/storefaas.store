@@ -15,7 +15,7 @@ const StoreHeader: FC = () => {
   const variant = 'header'
 
   const test = async () => {
-    fetch('/functions/hello').then(resp => resp.text().then(text => console.log(text)))
+    fetch('/functions/hello').then(resp => resp.text().then(text => alert(text)))
   }
 
   return (

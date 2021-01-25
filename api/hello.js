@@ -5,7 +5,8 @@ exports.handler = async (event) => {
 
   return {
     statusCode: 200,
-    body: `Hello ${name}`,
+    body: `Hello ${name}
+Body: ${JSON.stringify(event.body)}`,
   };
 };
 
