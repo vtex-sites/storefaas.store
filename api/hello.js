@@ -1,7 +1,7 @@
 exports.handler = async (event) => {
-  let name = event.queryStringParameters.name
-  if (event.queryStringParameters)
-    name = 'World';
+  let name = 'World'
+  if (event.queryStringParameters.name)
+    name = event.queryStringParameters.name;
 
   return {
     statusCode: 200,
