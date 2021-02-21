@@ -1,7 +1,0 @@
-{
-  "extends": "@vtex/tsconfig",
-  "compilerOptions": {
-    "module": "umd"
-  },
-  "include": ["api/*"]
-}
