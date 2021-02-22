@@ -1,5 +1,3 @@
-const getStaticPaths = () => require('./staticPaths.json')
-
 require('dotenv').config({
   path: `${__dirname}/vtex.env`,
 })
@@ -11,13 +9,14 @@ const STORE_ID = 'storecomponents'
 
 const {
   NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://faststore.netlify.app/',
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV,
+  URL = `https://${STORE_ID}.vtex.app`,
+  DEPLOY_PRIME_URL = URL,
+  CONTEXT: ENV = NODE_ENV,
 } = process.env
 
-const isNetlifyProduction = NETLIFY_ENV === 'production'
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+const allowedHosts = ['storecomponents.vtex.app', 'storetheme.vtex.com']
+const isProduction = ENV === 'production'
+const siteUrl = isProduction ? URL : DEPLOY_PRIME_URL
 
 const transformHeaders = (headers, path) => {
   const outputHeaders = [
@@ -25,7 +24,6 @@ const transformHeaders = (headers, path) => {
     'X-XSS-Protection: 1; mode=block',
     'X-Content-Type-Options: nosniff',
     'Referrer-Policy: same-origin',
-    'Set-Cookie: VtexStoreVersion=v2; Max-Age=86400',
   ]
 
   if (!path.includes('/account')) {
@@ -37,10 +35,16 @@ const transformHeaders = (headers, path) => {
 
 module.exports = {
   siteMetadata: {
-    title: 'Store Theme - VTEX Base Store',
+    title: 'Store Theme | VTEX Base Store',
     description: 'A sample store using the best of Gatsby and VTEX',
+    titleTemplate: '%s | Store Theme',
     author: 'Emerson Laurentino',
     siteUrl,
+  },
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+    FAST_DEV: false,
+    DEV_SSR: false,
   },
   plugins: [
     {
@@ -55,9 +59,15 @@ module.exports = {
       resolve: '@vtex/gatsby-theme-store',
       options: {
         storeId: STORE_ID,
-        getStaticPaths,
         locales: ['en', 'pt'],
         defaultLocale: 'en',
+      },
+    },
+    {
+      resolve: '@vtex/gatsby-plugin-google-tag-manager',
+      options: {
+        gtmId: 'GTM-TT2MDM3',
+        allowedHosts,
       },
     },
     {
@@ -76,15 +86,22 @@ module.exports = {
       resolve: '@vtex/gatsby-plugin-cms',
       options: {
         tenant: STORE_ID,
+        workspace,
       },
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        resolveEnv: () => NETLIFY_ENV,
+        resolveEnv: () => ENV,
         env: {
           production: {
-            policy: [{ userAgent: '*' }],
+            policy: [
+              {
+                userAgent: '*',
+                allow: '/',
+                disallow: ['/checkout/*'],
+              },
+            ],
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
@@ -118,6 +135,5 @@ module.exports = {
         transformHeaders,
       },
     },
-    `gatsby-plugin-client-side-redirect`
   ],
 }

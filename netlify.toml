@@ -1,5 +1,2 @@
-[build]
-  functions = "api"
-
 [[plugins]]
   package = "netlify-plugin-gatsby-cache"

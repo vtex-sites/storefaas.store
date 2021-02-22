@@ -1,16 +1,32 @@
-import Carousel from '@vtex/gatsby-theme-store/src/components/Carousel'
-import { PageProps } from 'gatsby'
-import React, { FC } from 'react'
+import { Carousel, LocalizedLink } from '@vtex/store-ui'
+import Container from '@vtex/gatsby-theme-store/src/components/Container'
+import type { PageProps } from 'gatsby'
+import type { FC } from 'react'
+import React from 'react'
 
-import CAROUSEL_ITEMS from './carousel.json'
+import type { HomePageQueryQuery } from '../../pages/__generated__/HomePageQuery.graphql'
+import ShelfProducts from '../Shelf/ShelfProducts'
 import RichTextRow from './RichTextRow'
 
-type Props = PageProps<unknown>
+type Props = PageProps<HomePageQueryQuery>
 
-const Fold: FC<Props> = () => (
+const Fold: FC<Props> = ({ data: { content, vtex } }) => (
   <>
-    <Carousel allItems={CAROUSEL_ITEMS} height="540px" width="360px" />
+    <Carousel
+      {...content?.blocks[0]?.props}
+      height="540px"
+      width="360px"
+      link={LocalizedLink}
+    />
     <RichTextRow />
+    <Container>
+      <ShelfProducts
+        {...content?.blocks[1]?.props}
+        products={vtex.products}
+        showArrows
+        showDots
+      />
+    </Container>
   </>
 )
 

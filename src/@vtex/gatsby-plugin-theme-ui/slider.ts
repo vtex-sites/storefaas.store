@@ -1,18 +1,17 @@
-import {
-  createTheme,
-  responsivePictureTheme,
-  SxStyleProp,
-} from '@vtex/store-ui'
+import type { SxStyleProp } from '@vtex/store-ui'
+import { createTheme, responsivePictureTheme } from '@vtex/store-ui'
 
 const paginationDots: SxStyleProp = {
   container: {
+    paddingY: '10px',
+    paddingX: 0,
     marginTop: '0.5rem',
     marginBottom: '0.5rem',
     position: 'absolute',
     justifyContent: 'center',
+    alignItems: 'center',
     display: 'flex',
     margin: 0,
-    padding: 0,
     bottom: 0,
     left: 0,
     right: 0,
@@ -26,8 +25,8 @@ const paginationDots: SxStyleProp = {
     padding: '0.25rem',
     borderWidth: 0,
     outline: '0',
-    height: `0.625rem`,
-    width: `0.625rem`,
+    height: `0.725rem`,
+    width: `0.725rem`,
   },
   activeDot: {
     bg: 'secondary',
@@ -38,8 +37,8 @@ const paginationDots: SxStyleProp = {
     padding: '0.25rem',
     borderWidth: 0,
     outline: '0',
-    height: `0.625rem`,
-    width: `0.625rem`,
+    height: `0.725rem`,
+    width: `0.725rem`,
   },
 }
 
@@ -126,9 +125,13 @@ const carouselArrows: SxStyleProp = {
 }
 
 const carouselResponsivePicture = createTheme(responsivePictureTheme, {
+  picture: {
+    height: ['540px', '614px'],
+  },
   img: {
-    height: ['540px', '806px'],
-    width: 'auto',
+    aspectRatio: ['900 / 1348', '1680 / 806'],
+    height: ['540px', '614px'],
+    zIndex: -2,
   },
 })
 
