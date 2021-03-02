@@ -18,7 +18,7 @@ Kick-off your project with this default boilerplate. This starter ships with the
 
     ```shell
     # Clone this repo into your machine
-    npx degit vtex-sites/storefaas.store storefaas.store
+    npx degit vtex-sites/storecomponents.store my-awesome-store
     ```
 
 1.  **Install dependencies**
@@ -26,7 +26,7 @@ Kick-off your project with this default boilerplate. This starter ships with the
     Install dependencies with yarn
 
     ```shell
-    cd storefaas.store
+    cd my-awesome-store/
     yarn
     ```
 
