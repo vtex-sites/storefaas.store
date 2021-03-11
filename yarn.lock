@@ -2249,6 +2249,19 @@
     intl-messageformat-parser "^6.0.18"
     react-intl "^5.7.1"
 
+"@vtex/gatsby-plugin-i18n@^0.277.4":
+  version "0.277.4"
+  resolved "https://registry.yarnpkg.com/@vtex/gatsby-plugin-i18n/-/gatsby-plugin-i18n-0.277.4.tgz#83d4e5cd30651604d951d04174184b791fe9c22c"
+  integrity sha512-DbaPh45Rm2LRgzuW6M4lrMAu5Kb4l7X0E1u4gQXu5Z8nC9QlXbxy/Yhj2PGGgGsf+LFDRHWYfnLZSgG9XQRQ+g==
+  dependencies:
+    "@babel/parser" "^7.12.7"
+    "@babel/preset-typescript" "^7.12.7"
+    "@babel/register" "^7.12.1"
+    "@babel/traverse" "^7.12.9"
+    "@babel/types" "^7.12.7"
+    intl-messageformat-parser "^6.0.18"
+    react-intl "^5.7.1"
+
 "@vtex/gatsby-plugin-nginx@^0.275.0":
   version "0.275.0"
   resolved "https://registry.yarnpkg.com/@vtex/gatsby-plugin-nginx/-/gatsby-plugin-nginx-0.275.0.tgz#faa66185b29f9981abf00c00adb5f1d6398dd91c"
